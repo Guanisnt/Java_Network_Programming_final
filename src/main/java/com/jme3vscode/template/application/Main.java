@@ -33,5 +33,13 @@ public class Main extends SimpleApplication {
         rootNode.attachChild(tree);
         cam.setLocation(new Vector3f(0, 5, 15)); // 調整攝影機位置
         cam.lookAt(new Vector3f(0, 0, 0), Vector3f.UNIT_Y); // 調整攝影機焦點
+        Spatial car=assetManager.loadModel("assets/Models/Koenigsegg/uploads_files_2792345_Koenigsegg.obj");
+        car.setLocalTranslation(new Vector3f(0, 0, -10)); // 調整位置，使模型位於螢幕中央
+        car.scale(0.5f); // 縮放模型
+        rootNode.attachChild(car);  // 將模型加入場景
+        DirectionalLight sun = new DirectionalLight();  // 創建平行光
+        sun.setDirection(new Vector3f(-1, -2, -3));// 設定光源方向
+        sun.setColor(ColorRGBA.White);  // 設定光源顏色
+        rootNode.addLight(sun); // 將光源加入場景
     }
 }
